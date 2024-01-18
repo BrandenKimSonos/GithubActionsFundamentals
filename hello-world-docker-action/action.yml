@@ -1,6 +1,6 @@
 name: Docker Action Test
 description: Testing out creating our own Container Action
-author: @brandenkimsonos
+author: 'brandenkimsonos'
 
 inputs:
   who-to-greet:
