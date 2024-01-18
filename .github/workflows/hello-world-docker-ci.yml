@@ -1,0 +1,25 @@
+name: Container Action Testing
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ hello-world-docker-action/** ]
+  workflow_dispatch:
+
+jobs:
+  ContainerActionWorkflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3.3.0
+
+      - name: Call Custom Action
+        id: hello-action
+        uses: ./hello-world-docker-action
+        with:
+          who-to-greet: '@brandenkimsonos'
+
+      - name: Output set inside the docker container in custom action
+        run: echo "The time was ${{ steps.hello-action.outputs.time }} when the action ran"
+        
+      
