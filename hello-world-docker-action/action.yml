@@ -1,0 +1,19 @@
+name: Docker Action Test
+description: Testing out creating our own Container Action
+author: @brandenkimsonos
+
+inputs:
+  who-to-greet:
+    description: Person to greet in this action
+    required: true
+    default: 'World'
+
+outputs:
+    time:
+      description: Time of when person was greeted by the action
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
